@@ -18,7 +18,6 @@ I use a comprehensive suite of spatial and statistical metrics to assess segment
 
 - **Statistical Analysis of Volumes and Diameters**:
   - The volumes and maximum diameters of segmented ROIs (Regions of Interest) are extracted and statistically analyzed. Descriptive statistics (mean, median, standard deviation, minimum, maximum, and quartiles) are calculated to provide a comprehensive overview of the data distribution and central tendencies.
-  - Hypothesis testing will be conducted to compare the distributions of volumes and diameters between the machine-generated and manual segmentations, using t-tests or non-parametric tests depending on the data distribution.
 
 **Data Handling**:
 - The segmentation results, including both reference and generated RTStructs, are first converted from DICOM format into voxel arrays for computational analysis. Metrics are computed at varying tolerance levels (gap errors), allowing us to evaluate the robustness of segmentations against small positional discrepancies.

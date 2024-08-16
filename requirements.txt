@@ -5,3 +5,4 @@ dicompylercore==0.5.6
 shapely==2.0.4
 pandas==1.5.1
 pydicom==2.3.0
+scikit-image==0.19.3

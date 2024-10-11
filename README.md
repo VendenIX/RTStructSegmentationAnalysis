@@ -20,7 +20,7 @@ I use a comprehensive suite of spatial and statistical metrics to assess segment
   - The volumes and maximum diameters of segmented ROIs (Regions of Interest) are extracted and statistically analyzed. Descriptive statistics (mean, median, standard deviation, minimum, maximum, and quartiles) are calculated to provide a comprehensive overview of the data distribution and central tendencies.
 
 **Data Handling**:
-- The segmentation results, including both reference and generated RTStructs, are first converted from DICOM format into voxel arrays for computational analysis. Metrics are computed at varying tolerance levels (gap errors), allowing us to evaluate the robustness of segmentations against small positional discrepancies.
+- The segmentation results, including both reference and generated RTStructs, are first converted from DICOM format into voxel arrays for computational analysis.
 
 
 ## Explanation of Similarity Metrics

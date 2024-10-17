@@ -12,7 +12,7 @@ I use a comprehensive suite of spatial and statistical metrics to assess segment
   - **Jaccard Index**: Quantifies the similarity and diversity between sample sets, indicating the proportionate size of the intersection divided by the union of the sample sets.
   - **Mean Surface Distance (MSD)**: Calculates the average Euclidean distance between the surfaces of two volumes, offering insights into the contour accuracy.
   - **Volume Overlap Error (VOE)**: Represents the proportion of the total volume that is over-segmented or under-segmented relative to the reference, complementing the Dice coefficient by providing error rates.
-  - **Hausdorff Distance**: Evaluates the maximum distance of the dataset boundary points between the predicted and reference segmentations, highlighting the worst-case scenario of boundary prediction.
+	- **Hausdorff Distance (95th percentile)**: Measures the distance between the surface points of the segmented volumes, excluding the top 5% of the largest errors. This metric provides a more robust evaluation of the segmentation quality by focusing on the majority of points and reducing the influence of outliers, giving a more accurate representation of the model’s overall performance.
   - **Variation of Information (VI)**: Measures the amount of information lost and gained in the segmentation process, reflecting the complexity and precision of the information captured by the segmentation.
   - **Cosine Similarity**: Assesses the cosine angle between the multidimensional representations of the segmented volumes, useful for understanding the orientation and agreement in the segmented shapes.
 
@@ -55,13 +55,15 @@ VOE = 1 - (|X ∩ Y| / |X ∪ Y|)
 - Values close to 0 indicate almost perfect overlap, while higher values indicate less overlap.
 
 ### 4. **Hausdorff Distance (HD)**
-**Hausdorff Distance** measures the greatest of all the distances from a point in one segmented contour to the closest point in the other segmentation, providing a measure of the worst-case scenario of boundary prediction. This metric is crucial for identifying cases where the segmentation is generally accurate but contains extreme errors.
+**Hausdorff Distance (95th percentile)** measures the distance between a point on one segmented contour to the closest point on the other, but considers only the 95th percentile of these distances. This provides a robust measure of segmentation accuracy by focusing on the majority of the points and reducing the impact of outliers. It offers a better representation of typical segmentation performance compared to the maximum distance, which is more sensitive to extreme errors.
 
 ```markdown
-HD = max(h(X, Y), h(Y, X))
+HD_95 = max(h_95(X, Y), h_95(Y, X))
 ```
-- **h(X, Y)** is the Hausdorff distance from X to Y, calculated as the maximum of the minimum distances from each point of X to Y.
-- A high value may indicate significant errors, even if other similarity measures appear acceptable.
+- h_95(X, Y) is the 95th percentile of the distances from each point of X to Y.
+- This approach helps to ignore extreme outliers and focuses on overall segmentation accuracy.
+
+A high value in the 95th percentile Hausdorff Distance may still indicate significant discrepancies between the predicted and reference segmentations, but it focuses on typical errors rather than outliers. Even when other similarity measures appear acceptable, a high value in this metric suggests there are notable differences in the majority of the boundary points. And a low value reflects that most of the segmented points are well-aligned between the prediction and reference, indicating a more accurate segmentation.”
 
 ### 5. **Jaccard Index**
 The **Jaccard Index** is a measure of similarity between two sets, calculated as the size of the intersection divided by the size of the union of the sets. Similar to DSC, but without the factor of two, making it more sensitive to differences.

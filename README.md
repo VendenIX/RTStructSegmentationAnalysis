@@ -1,8 +1,11 @@
 # Comparative Analysis script of RTStruct Segmentations for Radiophysical Assessment
 
 ## Objective:
-This notebook is dedicated to the systematic analysis of segmentation results, comparing machine-generated RTStruct files against reference RTStructs created manually by medical professionals. The goal is to quantify the similarity and precision of automated segmentations relative to the gold standard of human expertise, specifically within the context of radiophysics.
+This project focuses on the systematic evaluation of automated and manual segmentations of brain metastases, utilizing RTStruct files. The primary objective is to assess the precision and similarity of machine-generated segmentations in comparison to those created manually by medical experts, with the goal of quantifying the accuracy of automated segmentations relative to expert standards.
 
+Although not directly implementing RANO-BM criteria, this analysis complements the clinical use of these criteria by leveraging a suite of computational metrics to evaluate the segmentation quality. Metrics such as the Dice Similarity Coefficient, Jaccard Index, and 95th percentile Hausdorff Distance are employed to measure the overlap and boundary precision between the automated and expert segmentations. This project is part of a broader effort to standardize and improve radiological workflows, facilitating more efficient patient follow-ups in clinical practice and potentially reducing the time required for segmentation, particularly for brain metastases, which are a complex and heterogeneous challenge in oncology.
+
+By addressing the limitations of traditional unidimensional measurement approaches in the RANO-BM criteria (which rely on the largest diameter), this project aims to propose more robust volumetric methods for evaluating tumor response to treatment. The ultimate goal is to refine the segmentation processes used in both clinical trials and routine care, contributing to a more accurate and standardized tumor assessment workflow.
 
 **Methodology**:
 I use a comprehensive suite of spatial and statistical metrics to assess segmentation accuracy and similarity:
